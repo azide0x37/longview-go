@@ -6,7 +6,6 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
-	"syscall"
 )
 
 func GetDataSysInfo(data *Data) error {
@@ -45,11 +44,11 @@ func getLinuxDistInfo(data *Data) error {
 	}
 
 	// Kernel stuff (from uname)
-	var u syscall.Utsname
-	err = syscall.Uname(&u)
-	if err == nil {
-		data.Instant["SysInfo.kernel"] = charsToString(u.Sysname) + " " + charsToString(u.Release)
-	}
+	//var u syscall.Utsname
+	//err = syscall.Uname(&u)
+	//if err == nil {
+	//	data.Instant["SysInfo.kernel"] = charsToString(u.Sysname) + " " + charsToString(u.Release)
+	//}
 
 	// OS and its architecture
 	data.Instant["SysInfo.type"] = runtime.GOOS
